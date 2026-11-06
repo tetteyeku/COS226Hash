@@ -1,0 +1,17 @@
+name: Java correctness and reproducibility
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile with warnings as errors and run regression tests
+        run: bash scripts/test.sh
+      - name: Rebuild every experiment and verify retrieval
+        run: bash scripts/run.sh --warmups 1 --runs 3

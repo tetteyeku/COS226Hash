@@ -1,0 +1,22 @@
+{
+  "attempt": 1,
+  "title": "Establish linked-list baseline with length-only hashing",
+  "explanation": "Use string length modulo a prime bucket count as an intentionally poor baseline. Equal-length keys cluster, so tail insertion examines every existing node and counts every occupied node as a collision. Both independent tables preserve duplicate-key records. This first real experiment establishes the space, collision and construction-time baseline before full-string hashing.",
+  "files_sha256": {
+    "src/Attempt.java": "c6618186dcdcaf90877f725c98e519942fa714e17e6d4f26011b7e6cb2c71a18",
+    "src/ChainedHashTable.java": "3ab0753c439dfadc464c198ccf444d036799f7b19b3102826451840221671c5b",
+    "src/CsvReader.java": "c9dc77c48b02be912f6c7d433abdb5e071aedd9d09f164f70d19c8758c768ece",
+    "src/HashFunction.java": "5b86083f320ae951aaf2e3c9df090fec60b6f0950c76bcc42b06d36346292d39",
+    "src/HashSomethingOut.java": "b451b14f107256bbe0b10f74ec7e6d7a44db00c24ba299f2502b995f21fc48a6",
+    "src/HashTable.java": "aa8100f6c6d5770cb80d781e67bc7dabf491b4bb4b49de07c08b2f9a208cb6b6",
+    "src/Key.java": "0471984eb3ec71144cceaeda6d37bc4562b4b6621796d9152484684b11295912",
+    "src/MovieCsv.java": "5217dabdf6f34a96c5a0c891161fd257a6cfaab84555882341e14daf177083bf",
+    "src/MovieRecord.java": "c8c3e06f0c55cdb302030d2f696737554278a6323bf9bd4a49e806f3ce9f3b2f",
+    "test/HashTableTests.java": "311e77302ee2dde20b5a8d4910644d1a4381f3e9845cf4e8121f8564452c0ab1",
+    "data/MOCK_DATA.csv": "8d9ef41d7117c3043121d3a69cd62c76ffbe823732668fc4ef64b084a016cdc6",
+    "results/attempt-01.txt": "a1076807eade3c5026c66abd8c7d2c48437d2bf6e5f146213daecbe737053efa",
+    "results/attempt-01.csv": "39a4d150ce0ae9f93ff17a3d7fa26e2db684368d23a0344a019053e79486982a",
+    "results/attempt-01-tests.txt": "bf9f701be3a33db0b96bd031bd69fe479d8116a90a9af3ace06fef489978c516",
+    "screenshots/attempt-01.png": "2992c3c31c1f1dbe1342a1a03cbe1f12592aa45d1d0bb72edd86d41061d507b1"
+  }
+}
