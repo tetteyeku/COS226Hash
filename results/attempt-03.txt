@@ -1,0 +1,29 @@
+COS 226 | HASH SOMETHING OUT
+Attempt 3 | Linear probing / character sum
+Hash: CHARACTER_SUM | Collision method: LINEAR_PROBING
+Dataset: data/MOCK_DATA.csv
+Dataset SHA-256: 8d9ef41d7117c3043121d3a69cd62c76ffbe823732668fc4ef64b084a016cdc6
+Captured UTC: 2026-11-06T20:02:25.748987Z
+Environment: Java 21.0.8 | Mac OS X aarch64
+Timing: 3 warmups + 9 samples; construction only; median reported
+
+TITLE HASH TABLE
+Records: 15,000 | Distinct keys: 11,309 | Capacity: 18,757
+Used slots: 15,000 | Wasted slots: 3,757 (20.03%)
+Record load: 0.7997 | Collisions: 87,850,899
+Construction: median 38.072 ms | min 37.700 ms | max 39.159 ms
+Samples (ms): 37.699584;38.110000;38.202125;39.158834;38.501500;38.014584;37.997042;38.072083;37.902500
+Verified: every record and duplicate retrieved; missing key empty; counters unchanged
+
+QUOTE HASH TABLE
+Records: 15,000 | Distinct keys: 14,891 | Capacity: 18,757
+Used slots: 15,000 | Wasted slots: 3,757 (20.03%)
+Record load: 0.7997 | Collisions: 92,759,473
+Construction: median 40.469 ms | min 40.127 ms | max 43.865 ms
+Samples (ms): 41.510708;40.510083;40.127250;40.468541;40.402833;40.169792;40.407792;42.374583;43.864833
+Verified: every record and duplicate retrieved; missing key empty; counters unchanged
+
+Collisions = occupied insertion locations examined (each linked node / probe).
+Waste counts bucket/slot locations, not total allocated memory bytes.
+Both tables verified independently against the original input.
+

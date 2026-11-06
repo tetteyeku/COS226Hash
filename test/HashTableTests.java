@@ -15,6 +15,7 @@ public final class HashTableTests {
     public static void main(String[] args) throws Exception {
         csvCases();
         chainCases();
+        probingCases();
         hashAndCapacityCases();
         experimentCases();
         realDatasetCases();
@@ -66,9 +67,33 @@ public final class HashTableTests {
         }
     }
 
+    private static void probingCases() throws Exception {
+        HashTable table = new LinearProbingHashTable(3, Key.TITLE, key -> -1);
+        MovieRecord a = movie("same", "a");
+        MovieRecord b = movie("other", "b");
+        MovieRecord c = movie("same", "c");
+        table.insert(a); table.insert(b); table.insert(c);
+        equal(table.collisions(), 3L, "Linear probing counts occupied slots: 0+1+2");
+        equal(table.getAll("same"), List.of(a, c), "Wrapped duplicate cluster order");
+        equal(table.getAll("missing"), List.of(), "Full-table missing lookup terminates");
+        equal(table.unusedSlots(), 0, "Full-table waste");
+        equal(table.usedSlots(), 3, "Probing occupied slots");
+        fails(IllegalStateException.class, () -> table.insert(movie("overflow", "d")), "Full insertion rejects");
+        equal(table.collisions(), 3L, "Failed full insert leaves counter unchanged");
+        fails(IllegalArgumentException.class, () -> new LinearProbingHashTable(0, Key.TITLE, key -> 0), "Zero probing capacity");
+        fails(NullPointerException.class, () -> table.getAll(null), "Null probing key rejected");
+        HashTable extremes = new LinearProbingHashTable(5, Key.QUOTE, key -> Long.MIN_VALUE);
+        MovieRecord empty = movie("empty", "");
+        extremes.insert(empty);
+        equal(extremes.getAll(""), List.of(empty), "Probing empty key and minimum hash");
+    }
+
     private static void hashAndCapacityCases() throws Exception {
         equal(HashFunction.LENGTH.applyAsLong("abcd"), 4L, "Length baseline");
         equal(HashFunction.POLYNOMIAL_31.applyAsLong("abc"), 96354L, "Polynomial known value");
+        equal(HashFunction.CHARACTER_SUM.applyAsLong("abc"), 294L, "Character sum known value");
+        equal(HashFunction.CHARACTER_SUM.applyAsLong("ab"), HashFunction.CHARACTER_SUM.applyAsLong("ba"),
+                "Sum demonstrates anagram collision");
         check(HashFunction.POLYNOMIAL_31.applyAsLong("ab") != HashFunction.POLYNOMIAL_31.applyAsLong("ba"),
                 "Polynomial hashing distinguishes order");
         equal(Attempt.nextPrime(0), 2, "Empty input capacity");

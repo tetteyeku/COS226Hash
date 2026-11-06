@@ -83,6 +83,23 @@ so a good hash cannot remove every collision.
 
 ![Attempt 2: measured statistics for both tables](screenshots/attempt-02.png)
 
+### 3. Linear probing with character-sum hashing
+
+This changes both the collision method and hash calculation. Character sum reads
+the full key but ignores order, so anagrams collide and many natural-language
+keys have nearby home positions. Linear probing merges those nearby positions
+into long primary clusters. At capacity 18,757, both tables leave 3,757 slots
+unused (20.03%), yet construction examines 87,850,899 occupied title slots and
+92,759,473 occupied quote slots. Median construction is 38.072 ms and 40.469 ms.
+Compared with attempt 2, fewer empty locations do not imply a better distribution:
+probing eventually fills slots even when home positions are badly concentrated.
+This attempt is slower despite its contiguous arrays and spare capacity.
+
+[Raw output](results/attempt-03.txt) · [CSV and samples](results/attempt-03.csv) ·
+[Source/evidence hashes](results/attempt-03-manifest.json)
+
+![Attempt 3: measured statistics for both tables](screenshots/attempt-03.png)
+
 ## Tests and evidence
 
 The regression runner checks exact small-case collision counts, duplicate retrieval,

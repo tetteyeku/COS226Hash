@@ -17,5 +17,17 @@ public enum HashFunction implements ToLongFunction<String> {
             for (int i = 0; i < key.length(); i++) hash = 31 * hash + key.charAt(i);
             return hash;
         }
+    },
+    CHARACTER_SUM {
+        /**
+         * Deliberately weak full-string hash: sums code units without position.
+         * Anagrams collide, and ordinary text reaches a narrow interval of sums.
+         * This differs from both length-only and order-sensitive polynomial hashing.
+         */
+        @Override public long applyAsLong(String key) {
+            long sum = 0;
+            for (int i = 0; i < key.length(); i++) sum += key.charAt(i);
+            return sum;
+        }
     }
 }

@@ -1,0 +1,23 @@
+{
+  "attempt": 3,
+  "title": "Explore primary clustering with linear probing and character-sum hashing",
+  "explanation": "Introduce a custom linear-probing table with one-slot steps and wraparound. Change the hash function to an order-insensitive character sum, a different poor hash that concentrates ordinary text in a narrow range. Reserve about 20 percent empty slots so construction always terminates. This tests how a weak hash creates long primary clusters under open addressing, rather than linked chains. Every occupied probe counts, including repeated-key records.",
+  "files_sha256": {
+    "src/Attempt.java": "ecfa493fb3fa4e0c1be01df8287985fceae189c6f7d80a5688505cddeb8d1ebb",
+    "src/ChainedHashTable.java": "3ab0753c439dfadc464c198ccf444d036799f7b19b3102826451840221671c5b",
+    "src/CsvReader.java": "c9dc77c48b02be912f6c7d433abdb5e071aedd9d09f164f70d19c8758c768ece",
+    "src/HashFunction.java": "383e7bf81160476e1bf95aca19525cf42fd51b8cb95b88ea63100c89e585728d",
+    "src/HashSomethingOut.java": "b451b14f107256bbe0b10f74ec7e6d7a44db00c24ba299f2502b995f21fc48a6",
+    "src/HashTable.java": "aa8100f6c6d5770cb80d781e67bc7dabf491b4bb4b49de07c08b2f9a208cb6b6",
+    "src/Key.java": "0471984eb3ec71144cceaeda6d37bc4562b4b6621796d9152484684b11295912",
+    "src/LinearProbingHashTable.java": "a6f4fe1be8a13cbb72c6f4944c6648fa9e3b7f128efa04446ae3a33ad83684d8",
+    "src/MovieCsv.java": "5217dabdf6f34a96c5a0c891161fd257a6cfaab84555882341e14daf177083bf",
+    "src/MovieRecord.java": "c8c3e06f0c55cdb302030d2f696737554278a6323bf9bd4a49e806f3ce9f3b2f",
+    "test/HashTableTests.java": "ed5cb5b996b051fd9e635aa3ba51f115fda4077f3ccdf361da80e7f2abeb0fd7",
+    "data/MOCK_DATA.csv": "8d9ef41d7117c3043121d3a69cd62c76ffbe823732668fc4ef64b084a016cdc6",
+    "results/attempt-03.txt": "f759c6b3b9d0d852fd91b25965ee9cfc30c80199f90b46ea41f7a41f0afbb908",
+    "results/attempt-03.csv": "a3069b7c97c7d1fcc517822428e32f94c8567636242363e737e647b22b21225b",
+    "results/attempt-03-tests.txt": "f86d4eb7e6c0274982cd042b2a097abd313e85a03d64a194ed2bfaafd20300f9",
+    "screenshots/attempt-03.png": "385b464810cf31a6d2ec8558bf49e397dd2d95ad7a3bd6a30bfe30d373e79689"
+  }
+}
