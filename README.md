@@ -10,6 +10,7 @@ Requires a JDK 21 or newer. There are no third-party Java dependencies.
 
 ```bash
 bash scripts/test.sh
+python3 scripts/verify_results.py --history
 bash scripts/run.sh
 bash scripts/run.sh --attempt 1 --output build/my-results
 bash scripts/run.sh --attempt 1 --title 'Nothing Left to Fear' --quote 'Ergonomic exuding task-force'
@@ -217,3 +218,12 @@ For each attempt, the committed evidence includes raw program output, CSV timing
 samples, a test log, source/data/evidence SHA-256 hashes, and one combined screenshot
 showing both tables. Screenshots are actual headless Chrome captures of the unchanged
 Java text output, rendered by `python3 scripts/capture_results.py N`.
+
+The final regression run passes 131 assertions, including full retrieval checks
+for every real record in all ten tables. `python3 scripts/verify_results.py --history`
+also validates source/evidence hashes against the **original commit for each
+experiment**, checks the README against the CSV, tests CLI error handling, and
+compiles/tests/replays all five historical commits in a temporary clone. Every
+historical replay reproduces the saved collision and wasted-space counts exactly.
+See [the verification log](results/verification.txt). Replayed construction times
+are expected to differ and are never compared for exact equality.

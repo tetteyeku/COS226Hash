@@ -1,0 +1,12 @@
+PASS attempt 1: original commit 3fe11f3, source hashes, preserved evidence, samples and README
+PASS attempt 2: original commit 230867d, source hashes, preserved evidence, samples and README
+PASS attempt 3: original commit 820d27e, source hashes, preserved evidence, samples and README
+PASS attempt 4: original commit 8e224e5, source hashes, preserved evidence, samples and README
+PASS attempt 5: original commit c1e1b46, source hashes, preserved evidence, samples and README
+PASS CLI: invalid arguments/files, empty datasets, empty keys, quoted Unicode and multiline retrieval
+PASS history replay 1 (3fe11f3): PASS: 51 assertions; 1 attempts; both keys; all 15,000 real records checked for each table. Deterministic statistics match.
+PASS history replay 2 (230867d): PASS: 68 assertions; 2 attempts; both keys; all 15,000 real records checked for each table. Deterministic statistics match.
+PASS history replay 3 (820d27e): PASS: 95 assertions; 3 attempts; both keys; all 15,000 real records checked for each table. Deterministic statistics match.
+PASS history replay 4 (8e224e5): PASS: 112 assertions; 4 attempts; both keys; all 15,000 real records checked for each table. Deterministic statistics match.
+PASS history replay 5 (c1e1b46): PASS: 131 assertions; 5 attempts; both keys; all 15,000 real records checked for each table. Deterministic statistics match.
+PASS: all requested evidence checks completed.
