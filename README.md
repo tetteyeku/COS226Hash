@@ -67,6 +67,22 @@ different keys with identical lengths.
 
 ![Attempt 1: measured statistics for both tables](screenshots/attempt-01.png)
 
+### 2. Linked list with polynomial-31 hashing
+
+This experiment keeps the same capacity and tail-insertion policy, changing only
+the hash function to `h = 31*h + character`. Character order now matters. Title
+collisions fall to 12,056 and quote collisions to 7,610, reductions of about 99.64%
+and 99.87% from attempt 1. Empty buckets fall to 7,046 (46.93%) and 5,576 (37.14%).
+Median construction falls to 0.875 ms and 1.050 ms. Reading all characters costs
+more than reading string length, but eliminating millions of linked-node visits
+more than offsets that work on this input. Duplicate titles still share a bucket,
+so a good hash cannot remove every collision.
+
+[Raw output](results/attempt-02.txt) · [CSV and samples](results/attempt-02.csv) ·
+[Source/evidence hashes](results/attempt-02-manifest.json)
+
+![Attempt 2: measured statistics for both tables](screenshots/attempt-02.png)
+
 ## Tests and evidence
 
 The regression runner checks exact small-case collision counts, duplicate retrieval,

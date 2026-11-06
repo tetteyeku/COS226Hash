@@ -5,5 +5,17 @@ public enum HashFunction implements ToLongFunction<String> {
     LENGTH {
         /** Deliberately poor baseline: equal-length strings always collide. */
         @Override public long applyAsLong(String key) { return key.length(); }
+    },
+    POLYNOMIAL_31 {
+        /**
+         * Order-sensitive full-string hash: h = 31*h + UTF-16 code unit.
+         * Intentional 32-bit overflow provides a cheap, deterministic wraparound.
+         * Unlike length, equal-length titles can now reach different buckets.
+         */
+        @Override public long applyAsLong(String key) {
+            int hash = 0;
+            for (int i = 0; i < key.length(); i++) hash = 31 * hash + key.charAt(i);
+            return hash;
+        }
     }
 }

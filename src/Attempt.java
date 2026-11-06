@@ -6,7 +6,9 @@ public record Attempt(int id, String description, Method method, HashFunction ha
 
     public static List<Attempt> all() {
         return List.of(
-            new Attempt(1, "Linked list / string length", Method.CHAINING, HashFunction.LENGTH, 1.0)
+            new Attempt(1, "Linked list / string length", Method.CHAINING, HashFunction.LENGTH, 1.0),
+            // Same capacity and collision policy isolate the effect of full-string hashing.
+            new Attempt(2, "Linked list / polynomial 31", Method.CHAINING, HashFunction.POLYNOMIAL_31, 1.0)
         );
     }
 

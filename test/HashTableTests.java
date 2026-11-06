@@ -68,6 +68,9 @@ public final class HashTableTests {
 
     private static void hashAndCapacityCases() throws Exception {
         equal(HashFunction.LENGTH.applyAsLong("abcd"), 4L, "Length baseline");
+        equal(HashFunction.POLYNOMIAL_31.applyAsLong("abc"), 96354L, "Polynomial known value");
+        check(HashFunction.POLYNOMIAL_31.applyAsLong("ab") != HashFunction.POLYNOMIAL_31.applyAsLong("ba"),
+                "Polynomial hashing distinguishes order");
         equal(Attempt.nextPrime(0), 2, "Empty input capacity");
         equal(Attempt.nextPrime(14), 17, "Next prime");
         equal(Attempt.nextPrime(17), 17, "Prime retained");

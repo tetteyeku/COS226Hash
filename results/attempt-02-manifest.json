@@ -1,0 +1,22 @@
+{
+  "attempt": 2,
+  "title": "Distribute linked-list keys with full-string polynomial hashing",
+  "explanation": "Replace length-only hashing with order-sensitive polynomial-31 hashing over every UTF-16 code unit. Keep linked-list tail insertion and the same prime capacity to isolate the hash-function change. This should spread equal-length titles and quotes across many more buckets, reducing both empty buckets and traversal collisions without dropping duplicate records.",
+  "files_sha256": {
+    "src/Attempt.java": "1a4e6d97cedff584da3f1a84c4d388e040b0d60ba22ad751f8762bb48598f29a",
+    "src/ChainedHashTable.java": "3ab0753c439dfadc464c198ccf444d036799f7b19b3102826451840221671c5b",
+    "src/CsvReader.java": "c9dc77c48b02be912f6c7d433abdb5e071aedd9d09f164f70d19c8758c768ece",
+    "src/HashFunction.java": "d733dfd905da22ba502493fb5268b0203c10a7ca8f85ad46668f0ee16df78e7d",
+    "src/HashSomethingOut.java": "b451b14f107256bbe0b10f74ec7e6d7a44db00c24ba299f2502b995f21fc48a6",
+    "src/HashTable.java": "aa8100f6c6d5770cb80d781e67bc7dabf491b4bb4b49de07c08b2f9a208cb6b6",
+    "src/Key.java": "0471984eb3ec71144cceaeda6d37bc4562b4b6621796d9152484684b11295912",
+    "src/MovieCsv.java": "5217dabdf6f34a96c5a0c891161fd257a6cfaab84555882341e14daf177083bf",
+    "src/MovieRecord.java": "c8c3e06f0c55cdb302030d2f696737554278a6323bf9bd4a49e806f3ce9f3b2f",
+    "test/HashTableTests.java": "8a39458977a9dc73483ea85e42baf09c1341897f86bc1140aafa061bb5fb02ae",
+    "data/MOCK_DATA.csv": "8d9ef41d7117c3043121d3a69cd62c76ffbe823732668fc4ef64b084a016cdc6",
+    "results/attempt-02.txt": "dc7999b4683fb982d7a52095ecc88b470b2efcb234bef362ed529056c4969f18",
+    "results/attempt-02.csv": "e365f6719d99d28dfe689d51cf40d9015722824b0cc15e632083196eb38eb20b",
+    "results/attempt-02-tests.txt": "17324247780877920be63fca52776b8d1c81d8b62a7c9a6bed685886450ddc75",
+    "screenshots/attempt-02.png": "b6ef399f296cf03a5d247b3a0c6d60d9128a27195da4fd285eb985e22b581847"
+  }
+}
