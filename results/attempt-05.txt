@@ -1,0 +1,29 @@
+COS 226 | HASH SOMETHING OUT
+Attempt 5 | Compact linked list / mixed polynomial 131
+Hash: POLYNOMIAL_131_MIXED | Collision method: CHAINING
+Dataset: data/MOCK_DATA.csv
+Dataset SHA-256: 8d9ef41d7117c3043121d3a69cd62c76ffbe823732668fc4ef64b084a016cdc6
+Captured UTC: 2026-11-06T20:04:00.027793Z
+Environment: Java 21.0.8 | Mac OS X aarch64
+Timing: 3 warmups + 9 samples; construction only; median reported
+
+TITLE HASH TABLE
+Records: 15,000 | Distinct keys: 11,309 | Capacity: 10,007
+Used buckets: 6,788 | Wasted buckets: 3,219 (32.17%)
+Record load: 1.4990 | Collisions: 15,486
+Construction: median 1.107 ms | min 0.972 ms | max 1.745 ms
+Samples (ms): 1.745333;1.196417;1.091125;1.106833;1.488542;1.119875;1.009542;0.971666;1.061666
+Verified: every record and duplicate retrieved; missing key empty; counters unchanged
+
+QUOTE HASH TABLE
+Records: 15,000 | Distinct keys: 14,891 | Capacity: 10,007
+Used buckets: 7,731 | Wasted buckets: 2,276 (22.74%)
+Record load: 1.4990 | Collisions: 11,316
+Construction: median 1.397 ms | min 1.278 ms | max 2.085 ms
+Samples (ms): 2.084959;1.579750;1.550084;1.379709;1.759667;1.397292;1.381875;1.350375;1.278458
+Verified: every record and duplicate retrieved; missing key empty; counters unchanged
+
+Collisions = occupied insertion locations examined (each linked node / probe).
+Waste counts bucket/slot locations, not total allocated memory bytes.
+Both tables verified independently against the original input.
+

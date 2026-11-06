@@ -1,0 +1,23 @@
+{
+  "attempt": 5,
+  "title": "Compact the best linked-list approach with mixed 64-bit polynomial hashing",
+  "explanation": "Attempt 2 had the fewest collisions and lowest measured construction medians of attempts 1 through 4 for both keys. Extend that full-string linked-list design with a 64-bit base-131 polynomial plus xor-shift/multiply mixing, and increase target record load from 1.0 to 1.5 to shrink the prime bucket array from 15,013 to 10,007. This deliberately trades some extra node traversal for fewer allocated and empty bucket references. Because hash and capacity both change, the results measure their combined effect rather than isolating either factor.",
+  "files_sha256": {
+    "src/Attempt.java": "307666f03efdbc01fbe1d67b75cc706a8754efd5493752ba15221b9d3f0ae9d7",
+    "src/ChainedHashTable.java": "3ab0753c439dfadc464c198ccf444d036799f7b19b3102826451840221671c5b",
+    "src/CsvReader.java": "c9dc77c48b02be912f6c7d433abdb5e071aedd9d09f164f70d19c8758c768ece",
+    "src/HashFunction.java": "7a2599daec03e387c5ca6a7f14d0128c33b37623d454fe343ea7a06d6641271f",
+    "src/HashSomethingOut.java": "b451b14f107256bbe0b10f74ec7e6d7a44db00c24ba299f2502b995f21fc48a6",
+    "src/HashTable.java": "aa8100f6c6d5770cb80d781e67bc7dabf491b4bb4b49de07c08b2f9a208cb6b6",
+    "src/Key.java": "0471984eb3ec71144cceaeda6d37bc4562b4b6621796d9152484684b11295912",
+    "src/LinearProbingHashTable.java": "a6f4fe1be8a13cbb72c6f4944c6648fa9e3b7f128efa04446ae3a33ad83684d8",
+    "src/MovieCsv.java": "5217dabdf6f34a96c5a0c891161fd257a6cfaab84555882341e14daf177083bf",
+    "src/MovieRecord.java": "c8c3e06f0c55cdb302030d2f696737554278a6323bf9bd4a49e806f3ce9f3b2f",
+    "test/HashTableTests.java": "401d7af2d857978d765200712f48dd6aba7e7270304a7eeb36f4b5a3395ed6ce",
+    "data/MOCK_DATA.csv": "8d9ef41d7117c3043121d3a69cd62c76ffbe823732668fc4ef64b084a016cdc6",
+    "results/attempt-05.txt": "f503ddb0325e7eebf85609c8a96ad76a34e1e0ae48d3aa6cf23b6250369a004f",
+    "results/attempt-05.csv": "3735b93700f54e6cbc14dfd283b5137b9ed40f5d3b2b94084aabcbcac7698b29",
+    "results/attempt-05-tests.txt": "ed4c9ff8890a27a2bcd9b0a271d3008a536fd9f7b19c97b0e3c1e00c736341d1",
+    "screenshots/attempt-05.png": "036b15b92f104aa4d2e338776c4501de3424c757c5ed420c5a099e1349b60cde"
+  }
+}

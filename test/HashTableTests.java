@@ -94,6 +94,12 @@ public final class HashTableTests {
         equal(HashFunction.CHARACTER_SUM.applyAsLong("abc"), 294L, "Character sum known value");
         equal(HashFunction.FNV1A_64.applyAsLong(""), 0xcbf29ce484222325L, "FNV offset basis for empty string");
         equal(HashFunction.FNV1A_64.applyAsLong("a"), 0x089be207b544f1e4L, "FNV over UTF-16LE known value");
+        equal(HashFunction.FNV1A_64.applyAsLong("🙂"), 0xf47a500fb71281b8L, "FNV surrogate pair known value");
+        equal(HashFunction.POLYNOMIAL_131_MIXED.applyAsLong(""), 0L, "Mixed polynomial empty value");
+        check(HashFunction.POLYNOMIAL_131_MIXED.applyAsLong("ab") != HashFunction.POLYNOMIAL_131_MIXED.applyAsLong("ba"),
+                "Mixed polynomial distinguishes order");
+        check(HashFunction.POLYNOMIAL_131_MIXED.applyAsLong("abcd") != HashFunction.POLYNOMIAL_31.applyAsLong("abcd"),
+                "Fifth hash calculation differs from polynomial 31");
         equal(HashFunction.CHARACTER_SUM.applyAsLong("ab"), HashFunction.CHARACTER_SUM.applyAsLong("ba"),
                 "Sum demonstrates anagram collision");
         check(HashFunction.POLYNOMIAL_31.applyAsLong("ab") != HashFunction.POLYNOMIAL_31.applyAsLong("ba"),

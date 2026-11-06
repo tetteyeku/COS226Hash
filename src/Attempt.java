@@ -12,7 +12,12 @@ public record Attempt(int id, String description, Method method, HashFunction ha
             // Switching collision strategy and using an order-insensitive sum exposes clustering.
             new Attempt(3, "Linear probing / character sum", Method.LINEAR_PROBING, HashFunction.CHARACTER_SUM, 0.8),
             // Same probing policy and capacity isolate stronger, order-sensitive mixing.
-            new Attempt(4, "Linear probing / FNV-1a 64", Method.LINEAR_PROBING, HashFunction.FNV1A_64, 0.8)
+            new Attempt(4, "Linear probing / FNV-1a 64", Method.LINEAR_PROBING, HashFunction.FNV1A_64, 0.8),
+            // Attempt 2 won collision count and timing among 1..4. Compact its bucket
+            // array by one third while changing the polynomial width/base and mixing.
+            // Chaining safely permits a record load above one; probing would not.
+            new Attempt(5, "Compact linked list / mixed polynomial 131", Method.CHAINING,
+                    HashFunction.POLYNOMIAL_131_MIXED, 1.5)
         );
     }
 

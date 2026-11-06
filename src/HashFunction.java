@@ -47,5 +47,22 @@ public enum HashFunction implements ToLongFunction<String> {
             }
             return hash;
         }
+    },
+    POLYNOMIAL_131_MIXED {
+        /**
+         * Fifth attempt extends successful full-string polynomial chaining.
+         * Accumulate in 64 bits with a different base (131), then xor shifted
+         * high bits into low bits around multiplication by a fixed odd constant.
+         * This is a noncryptographic mixing experiment, not a perfect hash.
+         * Pair it with denser chaining to reduce empty bucket references.
+         */
+        @Override public long applyAsLong(String key) {
+            long hash = 0;
+            for (int i = 0; i < key.length(); i++) hash = 131 * hash + key.charAt(i);
+            hash ^= hash >>> 32;
+            hash *= 0x9e3779b97f4a7c15L;
+            hash ^= hash >>> 29;
+            return hash;
+        }
     }
 }
