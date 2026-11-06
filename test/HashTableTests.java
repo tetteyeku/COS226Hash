@@ -92,6 +92,8 @@ public final class HashTableTests {
         equal(HashFunction.LENGTH.applyAsLong("abcd"), 4L, "Length baseline");
         equal(HashFunction.POLYNOMIAL_31.applyAsLong("abc"), 96354L, "Polynomial known value");
         equal(HashFunction.CHARACTER_SUM.applyAsLong("abc"), 294L, "Character sum known value");
+        equal(HashFunction.FNV1A_64.applyAsLong(""), 0xcbf29ce484222325L, "FNV offset basis for empty string");
+        equal(HashFunction.FNV1A_64.applyAsLong("a"), 0x089be207b544f1e4L, "FNV over UTF-16LE known value");
         equal(HashFunction.CHARACTER_SUM.applyAsLong("ab"), HashFunction.CHARACTER_SUM.applyAsLong("ba"),
                 "Sum demonstrates anagram collision");
         check(HashFunction.POLYNOMIAL_31.applyAsLong("ab") != HashFunction.POLYNOMIAL_31.applyAsLong("ba"),

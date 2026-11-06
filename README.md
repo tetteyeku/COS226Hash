@@ -100,6 +100,24 @@ This attempt is slower despite its contiguous arrays and spare capacity.
 
 ![Attempt 3: measured statistics for both tables](screenshots/attempt-03.png)
 
+### 4. Linear probing with 64-bit FNV-1a hashing
+
+Keeping the 18,757 slots and probing policy from attempt 3 isolates the stronger
+hash function. FNV-1a processes both bytes of each Java UTF-16 code unit, preserving
+character order. Collisions fall to 50,653 for titles and 28,202 for quotes, while
+unused slots stay exactly 3,757. Median construction falls to 1.151 ms and 1.752 ms.
+Those are large improvements over character sum, but polynomial chaining in
+attempt 2 still has fewer collisions and lower measured construction medians for
+both keys. Linear probing's clusters grow at roughly 80% load, and FNV does two
+mixing steps per code unit. The small timing differences also include JVM noise.
+The FNV recurrence and constants follow [RFC 9923](https://www.rfc-editor.org/rfc/rfc9923.html);
+the chosen input encoding here is explicitly UTF-16LE rather than UTF-8.
+
+[Raw output](results/attempt-04.txt) · [CSV and samples](results/attempt-04.csv) ·
+[Source/evidence hashes](results/attempt-04-manifest.json)
+
+![Attempt 4: measured statistics for both tables](screenshots/attempt-04.png)
+
 ## Tests and evidence
 
 The regression runner checks exact small-case collision counts, duplicate retrieval,

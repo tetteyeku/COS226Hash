@@ -29,5 +29,23 @@ public enum HashFunction implements ToLongFunction<String> {
             for (int i = 0; i < key.length(); i++) sum += key.charAt(i);
             return sum;
         }
+    },
+    FNV1A_64 {
+        /**
+         * FNV-1a, 64 bits, hashing the two bytes of each UTF-16 code unit in
+         * low-byte-first order. This covers all Java strings without allocating
+         * an encoded byte array. XOR then multiply mixes character order.
+         * Java long overflow intentionally computes modulo 2^64.
+         * Constants/recurrence: https://www.rfc-editor.org/rfc/rfc9923.html
+         */
+        @Override public long applyAsLong(String key) {
+            long hash = 0xcbf29ce484222325L;
+            for (int i = 0; i < key.length(); i++) {
+                char c = key.charAt(i);
+                hash = (hash ^ (c & 0xff)) * 0x100000001b3L;
+                hash = (hash ^ (c >>> 8)) * 0x100000001b3L;
+            }
+            return hash;
+        }
     }
 }

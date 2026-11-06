@@ -10,7 +10,9 @@ public record Attempt(int id, String description, Method method, HashFunction ha
             // Same capacity and collision policy isolate the effect of full-string hashing.
             new Attempt(2, "Linked list / polynomial 31", Method.CHAINING, HashFunction.POLYNOMIAL_31, 1.0),
             // Switching collision strategy and using an order-insensitive sum exposes clustering.
-            new Attempt(3, "Linear probing / character sum", Method.LINEAR_PROBING, HashFunction.CHARACTER_SUM, 0.8)
+            new Attempt(3, "Linear probing / character sum", Method.LINEAR_PROBING, HashFunction.CHARACTER_SUM, 0.8),
+            // Same probing policy and capacity isolate stronger, order-sensitive mixing.
+            new Attempt(4, "Linear probing / FNV-1a 64", Method.LINEAR_PROBING, HashFunction.FNV1A_64, 0.8)
         );
     }
 

@@ -1,0 +1,23 @@
+{
+  "attempt": 4,
+  "title": "Reduce probing clusters with order-sensitive 64-bit FNV-1a",
+  "explanation": "Replace the additive character sum with 64-bit FNV-1a over both bytes of every UTF-16 code unit. XOR and multiplication make character order matter and spread home positions. Keep linear probing, prime capacity 18,757 and the 0.8 target load from attempt 3, so the measured change isolates the hash function. Validate known hash values as well as all real duplicate records.",
+  "files_sha256": {
+    "src/Attempt.java": "8c89a3fd67c15d6477c7bfc54be3e3a7b9255c46da53ac6cd309718820760a2e",
+    "src/ChainedHashTable.java": "3ab0753c439dfadc464c198ccf444d036799f7b19b3102826451840221671c5b",
+    "src/CsvReader.java": "c9dc77c48b02be912f6c7d433abdb5e071aedd9d09f164f70d19c8758c768ece",
+    "src/HashFunction.java": "65c98d6414636759a0cba426b1a9953fd332ce815ea809e40a1356f2fe15c770",
+    "src/HashSomethingOut.java": "b451b14f107256bbe0b10f74ec7e6d7a44db00c24ba299f2502b995f21fc48a6",
+    "src/HashTable.java": "aa8100f6c6d5770cb80d781e67bc7dabf491b4bb4b49de07c08b2f9a208cb6b6",
+    "src/Key.java": "0471984eb3ec71144cceaeda6d37bc4562b4b6621796d9152484684b11295912",
+    "src/LinearProbingHashTable.java": "a6f4fe1be8a13cbb72c6f4944c6648fa9e3b7f128efa04446ae3a33ad83684d8",
+    "src/MovieCsv.java": "5217dabdf6f34a96c5a0c891161fd257a6cfaab84555882341e14daf177083bf",
+    "src/MovieRecord.java": "c8c3e06f0c55cdb302030d2f696737554278a6323bf9bd4a49e806f3ce9f3b2f",
+    "test/HashTableTests.java": "1fd6e72b850f125ffc94e75fcdada58ceb6ac217828344bd2b6413204a22e82d",
+    "data/MOCK_DATA.csv": "8d9ef41d7117c3043121d3a69cd62c76ffbe823732668fc4ef64b084a016cdc6",
+    "results/attempt-04.txt": "eec165efaf67704bf5214da9308233e85a7500c21d040a9a29771549fd4e1724",
+    "results/attempt-04.csv": "faf1a320a4c2273d65a2932ba3a2d18e2345ed2c71eb7bd70745613e5dd71a61",
+    "results/attempt-04-tests.txt": "b16de76d894f559caad72951caffe0690d18bfab23ca0829bb1b19c114d16b22",
+    "screenshots/attempt-04.png": "c283e89417541cb7c51ef423f6dc200a7ea746830af9ba78f7fda9d68b597b2c"
+  }
+}
